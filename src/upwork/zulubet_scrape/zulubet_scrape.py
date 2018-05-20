@@ -11,4 +11,12 @@ soup = BeautifulSoup(page)
 
 content_table = soup.find('table', attrs={'class': 'content_table'})
 
+for index, row in enumerate(content_table.contents):
+    if index <= 1:
+        continue
+
+    for row_index, td in enumerate(row.contents):
+        print(str(row_index) + "_" + str(td))
+
+    print(str(index) + "_" + str(row))
 print(content_table)
